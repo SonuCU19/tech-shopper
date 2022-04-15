@@ -118,6 +118,11 @@ hr{
     flex-wrap: wrap;
 }
 
+#pay-button{
+    color: white;
+    justify-content: center;
+}
+
 .empty__cart{
     background-color: var(--container-color);
     height: 250px;
