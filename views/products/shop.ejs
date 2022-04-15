@@ -1,0 +1,43 @@
+<%- include("../partials/header") %> 
+<%- include("../partials/navbar") %>
+
+<!--=============== MAIN ===============-->
+<main class="main">
+    <!--=============== SHOP ===============-->
+    <section class="shop section container">
+        <h2 class="breadcrumb__title">Shop Page</h2>
+        <h3 class="breadcrumb__subtitle">Home > <span>Shop</span></h3>
+
+        <div class="shop__container grid">
+            <!-- <div class="sidebar"></div> -->
+
+            <div class="shop__items grid">
+
+                <% for(let product of products ){ %>
+                    <div class="shop__content">
+                        <div class="shop__tag">New</div>
+                        <img src="<%=product.img%>" alt="" class="shop__img">
+                        <a href="/products/<%=product._id%>">
+                            <h3 class="shop__title">
+                                <%=product.name%>
+                            </h3>
+                        </a>
+                        <span class="shop__subtitle">
+                            <%=product.type%>
+                        </span>
+
+                        <div class="shop__prices">
+                            <span class="shop__price">&#x20B9; <%=product.price%></span>
+                        </div>
+
+                        <a href="/products/<%=product._id%>" class="button shop__button">
+                            <i class="bx bx-cart-alt shop__icon"></i>
+                        </a>
+                    </div>
+                    <%}%>
+            </div>
+        </div>
+    </section>
+</main>
+
+<%- include("../partials/footer") %> 

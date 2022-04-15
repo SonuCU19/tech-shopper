@@ -1,0 +1,98 @@
+<!-- --============ HEADER ===========--  -->
+<header class="header" id="header">
+    <nav class="nav container">
+        <a href="index.html" class="nav__logo">
+            <i class="bx bxs-shopping-bags nav__logo-icon"></i>Tech-shopper
+        </a>
+
+        <div class="nav__menu" id="nav-menu">
+            <ul class="nav__list">
+                <li class="nav__item">
+                    <a href="/" class="nav__link">Home</a>
+                </li>
+                <li class="nav__item">
+                    <a href="/products" class="nav__link ">shop</a>
+                </li>
+
+                <%if(currentUser &&  currentUser.type=='admin'){%>
+                    <li class="nav__item">
+                        <a href="/products/new" class="nav__link ">Add New Product</a>
+                    </li>
+                <% } else{%>
+                    <li class="nav__item">
+                        <a href="/about" class="nav__link">about us</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="/contact" class="nav__link">contact us</a>
+                    </li>
+                <% } %>   
+            </ul>
+            <div class="nav__close" id="nav-close">
+                <i class="bx bx-x"></i>
+            </div>
+        </div>
+
+        <div class="nav__btns">
+
+            <%if(!currentUser){%>
+                <div class="login__toggle" id="login-button">
+                    <i class="bx bx-user" onclick="login()"></i>
+                 </div>
+            <% } else{%> 
+                <div class="login__toggle" id="login-button">
+
+                    <i class="bx bx-user"></i>
+
+                    <div class="logout" id="logout">
+                        <a href="/logout">log out</a>
+                    </div>
+                 </div>
+            <% } %> 
+
+            <%if(currentUser && currentUser.type === 'user'){%>
+                <div class="nav__shop" id="cart-shop">
+                    
+                        <% if(currentUser.cart.length === 0){ %> 
+                           <a href="/user/cart"> <i class="bx bx-shopping-bag"></i></a>
+                            
+                        <%}else{%>
+                            <a href="/user/cart"> <i class="bx bx-shopping-bag"> <sup><%= currentUser.cart.length %> </sup> </i> </a>  
+                        <% } %> 
+                    
+                </div>
+            <% } %> 
+            <div class="nav__toggle" id="nav-toggle">
+                <i class="bx bx-grid-alt"></i>
+            </div>
+        </div>
+    </nav>
+</header>
+
+
+<!--=============== LOGIN ===============-->
+<div class="login" id="login">
+    <i class="bx bx-x login__close" id="login-close"></i>
+
+    <h2 class="login__title-center">Login</h2>
+
+    <form action="/login" method="POST" class="login__form grid">
+        
+        <div class="login__content">
+            <label for="" class="login__label">Username</label>
+            <input type="text" name="username" id="username"  class="login__input">
+        </div>
+
+        <div class="login__content">
+            <label for="" class="login__label">Password</label>
+            <input type="password" name="password" id="password" class="login__input">
+        </div>
+
+        <div>
+            <button type="submit" class="button">login</button>
+        </div>
+
+        <div>
+            <p class="signup">Not a member? <a href="/register">Sign up now</a> </p>
+        </div>
+    </form>
+</div>

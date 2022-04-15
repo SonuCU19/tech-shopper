@@ -1,0 +1,63 @@
+<%- include("../partials/header") %> 
+<%- include("../partials/navbar") %>
+
+<!-- --============ MAIN ===========--  -->
+<main class="main">
+    <!--=============== ADD NEW PRODUCT ===============-->
+    <section class="new-product section">
+        <h2 class="breadcrumb__title new-product__title">Add New Product</h2>
+    
+        <div class="new-product__container container">
+
+            <form action="/products" method="POST" enctype="multipart/form-data"   class="new-product__form">
+                <div class="new-product__inputs grid">
+                    <div class="new-product__content">
+                        <label for="" class="new-product__label">Name</label>
+                        <input type="text" name="name" id="name" class="new-product__input">
+                    </div>
+
+                    <div class="new-product__content">
+                        <label for="" class="new-product__label">Price</label>
+                        <input type="number" name="price" id="price" class="new-product__input">
+                    </div>
+                </div>
+
+                <div class="new-product__inputs grid ">
+                    <div class="new-product__content">
+                        <select  name="category" id="category" class="new-product__input new__input-type">
+                            <option value="">Add Product To</option>
+                            <option value="swiper">Swiper Section</option>
+                            <option value="new">New Arrival Section</option>
+                            <option value="shop">Shop Section</option>
+                          </select>
+                    </div>
+
+                    <div class="new-product__content ">
+                        <select name="type" id="type" class="new-product__input new__input-type">
+                            <option value="">Select Category</option>
+                            <option value="Phones">Phones</option>
+                            <option value="Laptops">Laptops</option>
+                            <option value="Headphones">Headphones</option>
+                          </select>
+                    </div>
+                </div>
+
+                <div class="new-product__content input__file">
+                    <label for="" class="new-product__label">Image</label>
+                    <input type="file" name="img" id="img" >
+                </div>
+
+                <div class="new-product__content">
+                    <label for="" class="new-product__label">Description</label>
+                    <textarea name="desc" id="desc" cols="0" rows="7" class="contact__input"></textarea>
+                </div>
+
+                <div>
+                    <button class="button" type="submit">Add product</button>
+                 </div>
+            </form>
+        </div>
+    </section>
+</main>
+
+<%- include("../partials/footer") %> 

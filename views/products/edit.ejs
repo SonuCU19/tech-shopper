@@ -1,0 +1,93 @@
+<%- include("../partials/header") %> 
+<%- include("../partials/navbar") %>
+
+<!-- --============ MAIN ===========--  -->
+<main class="main">
+    <!--=============== CONTACT US ===============-->
+    <section class="new-product section ">
+        <h2 class="breadcrumb__title new-product__title">Update Product</h2>
+       
+        <div class="new-product__container container">
+
+            <form action="/products/<%=product._id%>?_method=PATCH" method="POST"  class="new-product__form">
+                <div class="new-product__inputs grid">
+                    <div class="new-product__content">
+                        <label for="" class="new-product__label">Name</label>
+                        <input type="text" name="name" id="name" class="new-product__input" value="<%= product.name %>">
+                    </div>
+
+                    <div class="new-product__content">
+                        <label for="" class="new-product__label">Price</label>
+                        <input type="number" name="price" id="price" class="new-product__input" value="<%= product.price %>">
+                    </div>
+                </div>
+
+                <div class="new-product__inputs grid">
+                    <div class="new-product__content">
+                        <select name="category" id="category" class="new-product__input">
+                            <option value="">Add Product To</option>
+                            <% if(product.category === 'swiper'){ %> 
+                                <option value="swiper" selected>Swiper Section</option>
+                            <% } else{%> 
+                                <option value="swiper">Swiper Section</option>
+                            <% } %> 
+
+                            <% if(product.category === 'new'){ %> 
+                                <option value="new" selected>New Arrival Section</option>
+                            <% } else{%> 
+                                <option value="new">New Arrival Section</option>
+                            <% } %> 
+                            
+                        
+                            <% if(product.category === 'shop'){ %> 
+                                <option value="shop" selected>Shop Section</option>
+                            <% } else{%> 
+                                <option value="shop">Shop Section</option>
+                            <% } %> 
+                           
+                          </select>
+                    </div>
+
+                    <div class="new-product__content">
+                        <select name="type" id="type"  class="new-product__input">
+                            <option value="">Select Category</option>
+                            <% if(product.type === 'Phones'){ %> 
+                                <option value="Phones" selected>Phones</option>
+                            <% } else{%> 
+                                <option value="Phones">Phones</option>
+                            <% } %> 
+
+                            <% if(product.type === 'Laptops'){ %> 
+                                <option value="Laptops" selected>Laptops</option>
+                            <% } else{%> 
+                                <option value="Laptops">Laptops</option>
+                            <% } %> 
+
+                            <% if(product.type === 'Headphones'){ %> 
+                                <option value="Headphones" selected>Headphones</option>
+                            <% } else{%> 
+                                <option value="Headphones">Headphones</option>
+                            <% } %> 
+                          </select>
+                    </div>
+                </div>
+
+                <div class="new-product__content input__file">
+                    <label for="" class="new-product__label">Product Image</label>
+                    <input type="file" name="" id="">
+                </div>
+
+                <div class="new-product__content">
+                    <label for="" class="new-product__label">Description</label>
+                    <textarea name="" id="" cols="0" rows="7" class="contact__input"><%= product.desc %></textarea>
+                </div>
+
+                <div>
+                   <button class="button" type="submit">update product</button>
+                </div>
+            </form>
+        </div>
+    </section>
+</main>
+
+<%- include("../partials/footer") %> 

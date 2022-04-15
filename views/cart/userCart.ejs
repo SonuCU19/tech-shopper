@@ -1,0 +1,93 @@
+<%- include("../partials/header") %> 
+<%-  include("../partials/navbar") %>
+
+<!-- ============ MAIN ===========  -->
+<main class="main">
+    
+    <!-- cart items details -->
+    <section class="cart section container">
+        <h2 class="cart__title-center">My Cart</h2>
+
+        <% if(user.cart.length>0){ %> 
+            <div class="cart__container grid">
+            
+                <div class="cart__items">
+                    <% for(let item of user.cart) {%>
+                        <article class="cart__card">
+                            <div class="cart__box">
+                                <img src="<%= item.img %>" alt="" class="cart__img">
+                            </div>
+                            <div class="cart__details">
+                                <h3 class="cart__title"><%= item.name.substring(0,31) %></h3>
+                                <span class="cart__price"> Price : &#x20B9;<%= item.price %> </span>
+            
+                                <div class="cart__amount">
+                                    <div class="cart__amount-content">
+                                        <span class="cart__amount-box">
+                                            <i class="bx bx-minus"></i>
+                                        </span>
+            
+                                        <span class="cart__amount-number">1</span>
+            
+                                        <span class="cart__amount-box">
+                                            <i class="bx bx-plus"></i>
+                                        </span>
+                                    </div>
+                                    <form action="/cart/<%=item._id%>/remove?_method=DELETE" method="POST">
+                                        <button class="cart__delete-button"><i class="bx bx-trash-alt cart__amount-trash"></i></button>
+                                    </form>
+                                    
+                                </div>
+                            </div>
+                        </article>
+                    <%}%>
+                </div>
+
+                <div class="cart__total">
+                
+                <h3 class="cart__total-center">The Total Amount Of </h3>
+                <%let price=0%>
+                <%for(let item of user.cart){%>
+                    <% price+=item.price %>
+                <%}%>
+
+                    <div class="cart__total-content">
+                        <span>Price <span>(<%= user.cart.length %> items)</span> </span>
+                        <span> &#x20B9;<%= price %></span>
+                    </div>
+                    <%let deliveryCharge = 60%>
+                    <%if(price>499){%>
+                        <%deliveryCharge = "FREE"%>
+                    <% }  %> 
+                    <div class="cart__total-content">
+                        <span>Delivery Charge </span>
+                        <span> <%= deliveryCharge %></span>
+                    </div>
+                    <span>Note: Free delivery is eligible on orders above &#x20B9;499</span>
+                    <hr>
+                    <div class="cart__total-content">
+                        <span>Total amount </span>
+                        <% let totalAmount = price %> 
+                        <%if(deliveryCharge!=="FREE"){%>
+                            <%totalAmount+=deliveryCharge %>
+                        <% }  %> 
+                        <span>&#x20B9;<%= totalAmount %></span>
+                    </div>
+                    <hr>
+                        
+                    <a href="/user/cart/checkout" id="pay-button">Proceed to pay</a>
+                <!-- <button class="button cart__button" "> <span>Proceed to Pay</span></button> -->
+                </div>
+            </div>
+        <% }else{ %> 
+           
+            <div class="empty__cart conatiner">
+                <h2 class="cart__title-center">No items in cart</h2>
+            </div>
+
+        <% } %> 
+    </section>
+</main>
+  
+
+<%- include("../partials/footer") %> 

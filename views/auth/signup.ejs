@@ -1,0 +1,39 @@
+<%- include("../partials/header") %> 
+<%- include("../partials/navbar") %>
+
+<!-- --============ MAIN ===========--  -->
+<main class="main">
+    <!--=============== SIGN UP ===============-->
+    <section class="signup section">
+        <h2 class="breadcrumb__title new-product__title">Sign Up Now</h2>
+    
+        <div class="signup__container container">
+
+            <form action="/register" method="POST"  class="signup__form">
+              
+                <div class="signup__content input__file">
+                    <label for="" class="signup__label">Name</label>
+                    <input type="text" name="username" id="username" class="login__input">
+                </div>
+
+                <div class="signup__content">
+                    <label for="" class="signup__label">Email</label>
+                    <input type="email" name="email" id="email"  class="login__input">
+                </div>
+
+                <div class="signup__content">
+                    <label for="" class="signup__label">Password</label>
+                    <input type="password" name="password" id="password" class="login__input">
+                </div>
+
+                <div class="signup__button-group">
+                    <button class="button" type="submit">Sign up</button>
+                    <p class="signup">Already have an account? <a href="/register" onclick="login()">Sign in now</a> </p>
+                </div>
+
+            </form>
+        </div>
+    </section>
+</main>
+
+<%- include("../partials/footer") %> 

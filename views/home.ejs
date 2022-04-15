@@ -1,0 +1,145 @@
+<%- include("partials/header") %> 
+<%- include("partials/navbar") %> 
+
+<!-- --============ MAIN ===========--  -->
+<main class="main">
+    <!-- --============ HOME ===========--  -->
+    <section class="home container">
+        <div class="swiper home-swiper">
+            <div class="swiper-wrapper">
+                <!-- HOME SWIPER 1 -->
+                <% let i=1 %>
+                    <% for(let product of swiper ){ %>
+                        <section class="swiper-slide">
+                            <div class="home__content grid">
+                                <div class="home__group">
+                                    <img src="<%=product.img%>" alt="" class="home__img">
+                                    <div class="home__indicator"></div>
+
+                                    <div class="home__details-img">
+                                        <h4 class="home__details-title">
+                                            <%=product.name%>
+                                        </h4>
+                                        <!-- <span class="home__details-subtitle">Woolen</span> -->
+                                    </div>
+                                </div>
+
+                                <div class="home__data">
+                                    <h3 class="home__subtitle">#<%= i %> TRENDING ITEM</h3>
+                                    <h1 class="home__title">ORIGINAL <br> IS NEVER <br> FINISHED!! </h1>
+                                    <p class="home__description">This is a Place of hope, meaning and purpose.visit
+                                        and become a part of something bigger - a movement that is changing life</p>
+
+                                    <div class="home__buttons">
+                                        <a href="/products/<%=product._id%>" alt="" class="button" style="color:#fff">Buy Now</a>
+                                        <a href="/products/<%=product._id%>" alt=""
+                                            class="button--link button--flex">View Details
+                                            <i class="bx bx-right-arrow-alt button__icon"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <% i++; %>
+                            <%}%>
+            </div>
+
+            <div class="swiper-pagination"></div>
+        </div>
+    </section>
+
+    <!-- --============ NEW ARRIVALS ===========--  -->
+    <section class="new section">
+        <h2 class="section__title">New Arrivals</h2>
+
+        <div class="new__container container">
+            <div class="swiper new-swiper">
+                <div class="swiper-wrapper">
+                    <!-- NEW CONTENT 1 -->
+
+                    <% for(let product of arrival ){ %>
+                        <div class="new__content swiper-slide">
+                            <div class="new__tag">New</div>
+                            <img src="<%=product.img%>" alt="" class="new__img">
+                            <a href="/products/<%=product._id%>">
+                                <h3 class="new__title">
+                                    <%=product.name%>
+                                </h3>
+                            </a>
+                            <span class="new__subtitle">
+                                <%=product.type%>
+                            </span>
+
+                            <div class="new__prices">
+                                <span class="new__price">&#x20B9;<%=product.price%></span>
+                                <!-- <span class="new__discount">$ 20.99</span> -->
+                            </div>
+
+                            <a href="/products/:id" class="button new__button">
+                                <i class="bx bx-cart-alt new__icon"></i>
+                            </a>
+                        </div>
+                        <%}%>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--=============== STEPS ===============-->
+    <section class="steps section container">
+        <div class="steps__bg">
+            <h2 class="section__title">How to order products <br> from e-shopper</h2>
+
+
+            <div class="steps__container grid">
+
+                <!-- STEPS CARD 1 -->
+                <div class="steps__card">
+                    <div class="steps__card-number">01</div>
+                    <h3 class="steps__card-title">Choose Products</h3>
+                    <p class="steps__card-description">
+                        We have several varieties products you can choose from
+                    </p>
+                </div>
+
+                <!-- STEPS CARD 2 -->
+                <div class="steps__card">
+                    <div class="steps__card-number">02</div>
+                    <h3 class="steps__card-title">Place and order</h3>
+                    <p class="steps__card-description">
+                        Once your order is set, we move to the next step which is shipping.
+                    </p>
+                </div>
+
+                <!-- STEPS CARD 3 -->
+                <div class="steps__card">
+                    <div class="steps__card-number">03</div>
+                    <h3 class="steps__card-title">Get order delivered</h3>
+                    <p class="steps__card-description">
+                        Our delivery process is easy, you receive the order direct to your home.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!--=============== NEWSLETTER ===============-->
+    <section class="newsletter section">
+        <div class="newsletter__container container">
+            <h2 class="section__title">Our Newsletter</h2>
+            <p class="newsletter__description">
+                Promotion new Products and sales. Directly to your inbox
+            </p>
+
+            <form action="" class="newsletter__form">
+                <input type="text" placeholder="Enter your email" class="newsletter__input">
+                <button class="button">Subscribe</button>
+            </form>
+        </div>
+        </div>
+    </section>
+</main>
+
+<%- include("partials/footer") %> 

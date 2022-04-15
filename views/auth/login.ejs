@@ -1,0 +1,33 @@
+<%- include("../partials/header") %> 
+<%- include("../partials/navbar") %> 
+
+<main class="main">
+    <!--=============== SIGNUP ===============-->
+    <section class="section">
+        <div class="login container" id="login">
+            <h2 class="login__title-center">Login</h2>
+    
+            <form action="/login" method="POST" class="login__form grid">
+                <div class="login__content">
+                    <label for="" class="login__label">Username</label>
+                    <input type="text" name="username" id="username" class="login__input">
+                </div>
+    
+                <div class="login__content">
+                    <label for="" class="login__label">Password</label>
+                    <input type="password" name="password" id="password" class="login__input">
+                </div>
+    
+                <div>
+                    <button type="submit">sign in</button>
+                </div>
+    
+                <div>
+                    <p class="signup">Not a member? <a href="/register">Sign up now</a></p>
+                </div>
+            </form>
+        </div>
+    </section>
+</main>
+
+<%- include("../partials/footer") %> 
