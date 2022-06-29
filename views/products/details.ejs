@@ -50,22 +50,21 @@
 
                 <div class="deatil__button-group">
 
-                    <%if(currentUser &&  currentUser.type=='user'){%>
-                        <form  action="/cart/<%=product._id%>/add" method="POST" class="flex-item">
+                     <%if(currentUser &&  currentUser.type=='admin'){%>
+                        <a href="/products/<%=product._id%>/edit" class="button flex-item" style="color: #fff;">Update</a>
+        
+                        <form  action="/products/<%= product._id %>?_method=DELETE" method="POST" class="flex-item">
+                            <button class="button">Delete</button>
+                        </form>
+                    <% } else { %> 
+                          <form  action="/cart/<%=product._id%>/add" method="POST" class="flex-item">
                             <button type="submit" class=" button">Buy Now</button>
                         </form>
     
                         <form  action="/cart/<%=product._id%>/add" method="POST" class="flex-item">
                             <button type="submit" class="button">Add To Cart</button>
                         </form>
-                       
-                    <%} else{%>
-                        <a href="/products/<%=product._id%>/edit" class="button flex-item" style="color: #fff;">Update</a>
-        
-                        <form  action="/products/<%= product._id %>?_method=DELETE" method="POST" class="flex-item">
-                            <button class="button">Delete</button>
-                        </form>
-                    <% } %> 
+                     <% } %> 
                 </div>
                
             </div>
