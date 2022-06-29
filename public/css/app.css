@@ -115,6 +115,10 @@ input {
     outline: none;
 }
 
+#webName{
+     text-transform: capitalize;
+}
+
 /*=============== REUSABLE CSS CLASSES ===============*/
 .section {
     padding: 7rem 0 2rem;
